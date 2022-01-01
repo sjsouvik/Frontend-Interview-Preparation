@@ -4,10 +4,10 @@ const fruits = ["mango", "watermelon", "banana"];
 // [].forEach((currentItem, index, array) => {...})
 fruits.forEach((fruit) => console.log(fruit)); //forEach() Higher Order Function
 
-console.log("**************polyfill of forEach()***************");
+console.log("**************polyfill for forEach()***************");
 Array.prototype.myForEach = function (callback) {
   for (let i = 0; i < this.length; i++) {
-    callback(this[i], i, this); //passing currentItem, index, array as arguments to the callback as the callback of forEach() takes index and array as optional parameters
+    callback(this[i], i, this); //passing currentItem, index, array as arguments to the callback as the callback of forEach() takes index and array as optional parameters along with the currentItem
   }
 };
 
