@@ -1,3 +1,11 @@
+/**
+ * Write a function which can take one nested array as input and flat it as the following:
+ *
+ * input: [1, [2, 3], 4, [[5]]]
+ * output: [1, 2, 3, 4, 5]
+ *
+ */
+
 const nestedArr = [1, 2, [3, 4], 5, [[[6, 7], 8, [[[[9]]]]]]];
 
 function flattenArray(inputArray) {
