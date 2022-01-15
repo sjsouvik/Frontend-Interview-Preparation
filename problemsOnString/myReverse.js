@@ -4,6 +4,8 @@
  *
  */
 
+//asked in Techmojo
+
 String.prototype.myReverse = function () {
   const inputStr = this;
   let outputStr = "";
