@@ -46,4 +46,7 @@ function sumAdvanced(first) {
   };
 }
 
+const sumAdvancedUsingArrowFunctions = first => second => second ? sumAdvancedUsingArrowFunctions(first + second) : first;
+
 console.log(sumAdvanced(1)(2)(3)());
+console.log(sumAdvancedUsingArrowFunctions(2)(5)(3)());
