@@ -12,7 +12,7 @@ String.prototype.myToUpperCase = function () {
     const asciiOfChar = str.charCodeAt(i);
 
     //ASCII value of "A" is 65, "a" is 97
-    if (asciiOfChar >= 97) {
+    if (asciiOfChar >= 97 && asciiOfChar <= 122) {
       output += String.fromCharCode(asciiOfChar - 32);
     } else {
       output += str[i];
@@ -22,4 +22,4 @@ String.prototype.myToUpperCase = function () {
   return output;
 };
 
-console.log("hello".myToUpperCase());
+console.log("hel?.47lo".myToUpperCase());
