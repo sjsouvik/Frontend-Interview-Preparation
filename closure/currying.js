@@ -40,6 +40,8 @@ console.log(sumWithShortSyntax(2)(3)());
  *
  */
 
+//asked in Techmojo, Unacademy
+
 function sumAdvanced(first) {
   return function (second) {
     return second ? sumAdvanced(first + second) : first;

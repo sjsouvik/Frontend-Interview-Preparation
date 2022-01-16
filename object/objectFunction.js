@@ -13,6 +13,8 @@
  *
  */
 
+//asked in Xebia
+
 function minus(a) {
   return {
     value: function () {
