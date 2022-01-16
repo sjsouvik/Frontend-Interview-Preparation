@@ -1,6 +1,6 @@
 /**
  *
- * Write a function which will take a message and delay as arguments and print after the given delay.
+ * Write a function which will take your name and delay as arguments and print after the given delay.
  *
  */
 
