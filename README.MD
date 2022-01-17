@@ -8,12 +8,12 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 - [Array](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/array)
 
-- [String](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/problemsOnString)
+- [String](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/string)
+
+- [Object](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/object)
 
 - [Closure](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/closure)
 
 - [Async JS](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/asyncJS)
 
 - [Recursion](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/recursion)
-
-- [Object](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/object)
