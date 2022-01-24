@@ -1,6 +1,6 @@
 /**
  *
- * Write a function to throttle a heavy function call
+ * Write a function to throttle a heavy function call.
  *
  */
 
