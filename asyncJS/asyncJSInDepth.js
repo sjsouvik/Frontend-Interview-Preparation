@@ -91,7 +91,7 @@ showOrdersCost();
 
 /**
  *
- * Promise.all([promises]) --> resolves after all promises are resolved. return array of values once all promises are resolved. Rejects if even one of them is rejected.
+ * Promise.all([promises]) --> resolves after all promises are resolved. return an array of resolved values in given `input promises order` once all promises are resolved. Rejects if even one of them is rejected.
  *
  * Promise.race([promises]) --> resolves or rejects based on whichever resolves or rejects 1st
  *
