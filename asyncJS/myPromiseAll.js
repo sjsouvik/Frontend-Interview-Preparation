@@ -11,13 +11,24 @@ function asyncTask(delay) {
   });
 }
 
+/**
+ * Used Promise.resolve() so that myPromiseAll() can resolve even if the given inputs are not promise objects.
+ *
+ * Promise.resolve() - it takes a value and returns a promise object which resolves to that given value. If the given value is promise, then it returns the same promise.
+ * Refer to this https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve to know more about Promise.resolve().
+ *
+ */
 function myPromiseAll(promises) {
   const result = [];
   let taskCompleted = 0;
 
   return new Promise((resolve, reject) => {
+    if (promises.length === 0) {
+      resolve(result);
+    }
+
     promises.forEach((promise, index) => {
-      promise
+      Promise.resolve(promise)
         .then((data) => {
           result[index] = data;
           taskCompleted += 1;
@@ -31,6 +42,6 @@ function myPromiseAll(promises) {
   });
 }
 
-myPromiseAll([asyncTask(4000), asyncTask(1000), asyncTask(2000)])
+myPromiseAll([4000, asyncTask(1000), asyncTask(2000)])
   .then(console.log)
   .catch(console.error);
