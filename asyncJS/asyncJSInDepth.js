@@ -37,7 +37,7 @@ getUser(14, (user) => {
   });
 });
 
-// Solved the previous problem, made 3 async calls sequestially using promises
+// Solved the previous problem, made 3 async calls sequentially using promises
 function getUserDetails(userId) {
   return new Promise((resolve, reject) => {
     console.log("Fetching user details from DB");
@@ -124,4 +124,14 @@ Promise.all([fakeFetch(10, true), fakeFetch(20, true), fakeFetch(30, true)])
 // Promise.all([promises]) where one input promise got rejected
 Promise.all([fakeFetch(10, true), fakeFetch(20, false), fakeFetch(30, true)])
   .then(console.log) // it wouldn't be executed as one input promise is rejected
+  .catch(console.error);
+
+// Examples of Promise.race([promises])
+Promise.race([
+  4,
+  fakeFetch(10, true),
+  fakeFetch(20, false),
+  fakeFetch(30, true),
+])
+  .then((data) => console.log(`Resolved output from Promise.race() - ${data}`))
   .catch(console.error);

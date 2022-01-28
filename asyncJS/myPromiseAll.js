@@ -42,6 +42,6 @@ function myPromiseAll(promises) {
   });
 }
 
-myPromiseAll([4000, asyncTask(1000), asyncTask(2000)])
+myPromiseAll([4000, asyncTask(1000), asyncTask(2000), Promise.resolve(5000)])
   .then(console.log)
   .catch(console.error);
