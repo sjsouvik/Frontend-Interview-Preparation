@@ -135,3 +135,8 @@ Promise.race([
 ])
   .then((data) => console.log(`Resolved output from Promise.race() - ${data}`))
   .catch(console.error);
+
+// Examples of Promise.allSettled([promises])
+Promise.allSettled([Promise.reject(10), 4, Promise.resolve(20)])
+  .then(console.log)
+  .catch(console.error);
