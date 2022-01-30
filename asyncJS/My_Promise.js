@@ -41,24 +41,12 @@ class MyPromise {
     this.handleError = errorHandler;
     return this;
   }
-
-  static resolve(value) {
-    if (value instanceof MyPromise) {
-      return value;
-    }
-
-    return new MyPromise((resolve) => resolve(value));
-  }
-
-  static reject(value) {
-    return new MyPromise((_, reject) => reject(value));
-  }
 }
 
 const myPromise = new MyPromise((resolve, reject) => {
   const success = true;
   setTimeout(
-    () => (success ? resolve(20) : reject("Something went wrong")),
+    () => (success ? resolve(20) : reject("Something went wrong!")),
     1000
   );
 });
