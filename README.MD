@@ -12,7 +12,7 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 - [Object](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/object)
 
-- [Closure](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/closure)
+- [Closure, Currying, Composition](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/closure)
 
 - [Async JS](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/asyncJS)
 
