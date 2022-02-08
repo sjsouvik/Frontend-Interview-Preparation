@@ -16,6 +16,8 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 - [Async JS](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/asyncJS)
 
+- [DOM](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/DOM)
+
 - [Recursion](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/recursion)
 
 - [DSA in JS](https://github.com/sjsouvik/Data-Structures-Algorithms/tree/master/DSA-JavaScript)
