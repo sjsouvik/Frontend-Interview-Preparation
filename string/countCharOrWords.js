@@ -8,19 +8,13 @@
  */
 
 function countChars(str) {
-  const arrOfChars = str.split("");
+  const freqMap = {};
+  for (const currentChar of str) {
+    const countOfChar = freqMap[currentChar];
+    freqMap[currentChar] = (countOfChar || 0) + 1;
+  }
 
-  const outputObj = arrOfChars.reduce((acc, item) => {
-    if (item in acc) {
-      acc[item] += 1;
-    } else {
-      acc[item] = 1;
-    }
-
-    return acc;
-  }, {});
-
-  return outputObj;
+  return freqMap;
 }
 
 function countWords(str) {
