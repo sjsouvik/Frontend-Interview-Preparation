@@ -13,10 +13,15 @@ console.log(reducedResult);
 console.log("**************polyfill for reduce()***************");
 Array.prototype.myReduce = function (callback, initialValue) {
   let accumulator = initialValue; //single value that would be returned from this funciton as result, initialized this to initialValue
+  const arrLength = this.length;
 
-  for (let i = 0; i < this.length; i++) {
-    if (!accumulator) {
-      accumulator = this[i]; // if initialValue is undefined, in that case 1st item of the array would be considered as initialValue
+  if (!arrLength && !accumulator) {
+    throw new Error("Empty array and no initial value is provided");
+  }
+
+  for (let i = 0; i < arrLength; i++) {
+    if (!accumulator && arguments.length === 1) {
+      accumulator = this[i]; // if the initialValue is not provided, in that case 1st item of the array would be considered as initialValue
     } else {
       accumulator = callback(accumulator, this[i], i, this);
     }
