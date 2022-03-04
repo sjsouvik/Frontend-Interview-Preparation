@@ -6,6 +6,28 @@
 
 //asked in Techmojo
 
+function compareArrays(arr1, arr2){
+  if(arr1.length !== arr2.length){
+    return false;
+  }
+
+  for(let i = 0; i < arr1.length; i++){
+    if(typeof(arr1[i]) === 'object' && typeof(arr2[i]) === 'object'){
+      if(!compareObjects(arr1[i], arr2[i])){
+        return false;
+      }
+    }else if(Array.isArray(arr1[i]) && Array.isArray(arr2[i])){
+      if(!compareArrays(arr1[i], arr2[i])){
+        return false;
+      }
+    }else if(arr1[i] !== arr2[i]){
+      return false;
+    }
+  }
+
+  return true;
+}
+
 function compareObjects(obj1, obj2) {
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
@@ -14,9 +36,15 @@ function compareObjects(obj1, obj2) {
   for (let key in obj1) {
     if (key in obj2) {
       if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
-        return compareObjects(obj1[key], obj2[key]);
-      } else if (obj1[key] === obj2[key]) {
-        return true;
+        if(!compareObjects(obj1[key], obj2[key])){
+          return false;
+        }
+      } else if(Array.isArray(obj1[key]) && Array.isArray(obj2[key])){
+        if(!compareArrays(obj1[key], obj2[key])){
+          return false;
+        }
+      } else if (obj1[key] !== obj2[key]) {
+        return false;
       }
     } else {
       return false;
@@ -30,4 +58,4 @@ const firstObj = { a: 1, b: 2 };
 const secondObj = { b: 2, a: 1, c: 1 };
 
 console.log(compareObjects(firstObj, secondObj));
-console.log(compareObjects({ a: { d: 1 }, b: 2 }, { b: 2, a: { d: 1 } }));
+console.log(compareObjects({ a: { d: 1 }, b: 2, c:[2, 3, 4] }, { b: 2, a: { d: 1 }, c:[2, 3, 4] }));
