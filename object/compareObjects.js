@@ -1,7 +1,7 @@
 /**
  *
  * Write a function which takes 2 objects and compare, if the both objects contain same keys and values corresponding to keys then return true else false.
- *
+ * Refer to the problem - isEqual() in recursion section to have a better solution and understand little more complex kind of problem on data comparison.
  */
 
 //asked in Techmojo
