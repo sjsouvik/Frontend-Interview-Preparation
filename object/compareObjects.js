@@ -12,15 +12,15 @@ function compareArrays(arr1, arr2){
   }
 
   for(let i = 0; i < arr1.length; i++){
-    if(typeof(arr1[i]) === 'object' && typeof(arr2[i]) === 'object'){
-      if(!compareObjects(arr1[i], arr2[i])){
-        return false;
-      }
-    }else if(Array.isArray(arr1[i]) && Array.isArray(arr2[i])){
+    if(Array.isArray(arr1[i]) && Array.isArray(arr2[i])){
       if(!compareArrays(arr1[i], arr2[i])){
         return false;
       }
-    }else if(arr1[i] !== arr2[i]){
+    } else if(typeof(arr1[i]) === 'object' && typeof(arr2[i]) === 'object'){
+      if(!compareObjects(arr1[i], arr2[i])){
+        return false;
+      }
+    } else if(arr1[i] !== arr2[i]){
       return false;
     }
   }
@@ -35,12 +35,12 @@ function compareObjects(obj1, obj2) {
 
   for (let key in obj1) {
     if (key in obj2) {
-      if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
-        if(!compareObjects(obj1[key], obj2[key])){
+      if(Array.isArray(obj1[key]) && Array.isArray(obj2[key])){
+        if(!compareArrays(obj1[key], obj2[key])){
           return false;
         }
-      } else if(Array.isArray(obj1[key]) && Array.isArray(obj2[key])){
-        if(!compareArrays(obj1[key], obj2[key])){
+      } else if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
+        if(!compareObjects(obj1[key], obj2[key])){
           return false;
         }
       } else if (obj1[key] !== obj2[key]) {
