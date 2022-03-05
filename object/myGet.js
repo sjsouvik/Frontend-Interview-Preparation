@@ -28,7 +28,7 @@ get(obj, 'a.c', 'bfe') // 'bfe'
  * @param {any} [defaultValue]
  * @return {any}
  */
- function get(source, path, defaultValue = undefined) {
+ function myGet(source, path, defaultValue = undefined) {
     if(!path.length){
       return defaultValue;
     }
