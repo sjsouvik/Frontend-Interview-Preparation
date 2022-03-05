@@ -16,7 +16,7 @@ NaN === NaN // false
  * @param {any} b
  * @return {boolean}
  */
- function is(a, b) {    
+ function myObjectIs(a, b) {    
     if(a === b){
       return a !== 0 || 1/a === 1/b; // return true when x and y are not 0 or, both are 0 of the same sign
     }
