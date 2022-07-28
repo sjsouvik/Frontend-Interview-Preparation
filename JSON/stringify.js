@@ -23,11 +23,11 @@ JSON.stringify() support two more parameters which is not required here.
  * @return {string}
  */
  function stringify(data) {    
-    if([NaN, null, undefined, Infinity].includes(data) || typeof data === 'symbol'){
+    if([NaN, null, Infinity].includes(data)){
       return 'null';
     }
   
-    if(typeof data === 'function'){
+    if(typeof data === 'function' || data === undefined || typeof data === 'symbol'){
       return undefined;
     }
     
