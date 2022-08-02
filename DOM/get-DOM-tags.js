@@ -25,3 +25,24 @@ function getTags(tree) {
 
   return Array.from(new Set(res)); // to return only unique tag names
 }
+
+function getTagsAnotherWay(tree) {    
+  const res = [];
+
+  function helper(root){
+    if(root){
+      const lowerCasedTagName = root.tagName.toLowerCase();    
+      if(!res.includes(lowerCasedTagName)){
+        res.push(lowerCasedTagName);
+      }
+
+      for(const child of root.children){
+        helper(child);
+      }
+    }    
+  }
+
+  helper(tree);
+
+  return res;
+}
