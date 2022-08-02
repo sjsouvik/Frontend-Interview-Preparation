@@ -20,10 +20,8 @@ function flatten(root) {
   while(queue.length){
     let removedElement = queue.shift();
     res.push(removedElement);
-
-    for(const child of removedElement.children){
-      queue.push(child);
-    }
+    
+    queue.push(...removedElement.children);
   }
 
   return res;
