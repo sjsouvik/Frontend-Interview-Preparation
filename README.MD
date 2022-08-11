@@ -16,6 +16,8 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 - [Async JS](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/asyncJS)
 
+- [Iterators](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/Iterators)
+
 - [DOM](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/DOM)
 
 - [JSON](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/JSON)
