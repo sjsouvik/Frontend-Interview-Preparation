@@ -68,10 +68,13 @@ function debounce(func, wait, option = {leading: false, trailing: true}) {
   let timerId, readyToCallForLeading = true, lastArgs = null;
 
   /* 
+    refer to this blog to understand about debouncing and throttlinh with leading and trailing options 
+    https://ellenaua.medium.com/throttle-debounce-behavior-lodash-6bcae1494e03 
+
     This is a tricky problem if the both leading and trailing are true. 
     we implement debounce with {leading: false, trailing: true} by default, 
     debounce with {leading: true, trailing: false} invokes the 1st call immediately 
-    and then it works in same way as default debounce -
+    and then it works in same way as the default debounce -
 
     if leading is true then we need to invoke the function immediately 
     and set the `readyToCallForLeading` to false, so that the other calls within the given wait time can be ignored. 
