@@ -69,12 +69,14 @@ function debounce(func, wait, option = {leading: false, trailing: true}) {
 
   /* 
     This is a tricky problem if the both leading and trailing are true. 
-    we implement debounce with {leading: false, trailing: true} by default -
+    we implement debounce with {leading: false, trailing: true} by default, 
+    debounce with {leading: true, trailing: false} invokes the 1st call immediately 
+    and then it works in same way as default debounce -
 
     if leading is true then we need to invoke the function immediately 
     and set the `readyToCallForLeading` to false, so that the other calls within the given wait time can be ignored. 
     Also, we need to store the arguments for the last call that was made during the wait time, 
-    so that if the trailing is true, that can be invoked once the wait time is over.
+    so that if the trailing is true, then the function can be invoked with the last stored arguments once the wait time is over.
   */
   return function debounced(...args){
     const context = this;         
