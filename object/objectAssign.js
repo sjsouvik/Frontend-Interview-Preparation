@@ -19,8 +19,8 @@ This is an easy one, could you implement Object.assign() with your own implement
  */
  function objectAssign(target, ...sources) {  
     // should throw error when target is null or undefined
-    if(!target){
-      throw new Error();
+    if(target === null || target === undefined){
+      throw new Error('Cannot convert null or undefined to object');
     }
   
     // should convert to object if target is primitive
