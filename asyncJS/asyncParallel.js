@@ -42,16 +42,6 @@ When error occurs, only first error is passed down to the last. Later errors or 
 
  */
 
-/*
-type Callback = (error: Error, data: any) => void
-
-type AsyncFunc = (
-   callback: Callback,
-   data: any
-) => void
-
-*/
-
 /**
  * @param {AsyncFunc[]} funcs
  * @return {(callback: Callback) => void}

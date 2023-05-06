@@ -1,6 +1,6 @@
 /**
  *
- * Write a function myPromiseAll which takes an array of Promises as an argument, and retuns a promise, which if resolved, returns
+ * Write a function myPromiseAll which takes an array of Promises as an argument, and returns a promise, which if resolved, returns
  * the result of each promise in an array, or an error catch block, if one of the promises is rejected.
  *
  */
