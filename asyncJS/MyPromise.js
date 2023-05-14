@@ -6,40 +6,86 @@
 
 class MyPromise {
   constructor(executor) {
-    this.promiseChain = [];
+    this.state = "pending";
+    this.result = null;
+    this.callbacks = [];
 
-    this.onResolve = this.onResolve.bind(this);
-    this.onReject = this.onReject.bind(this);
-    executor(this.onResolve, this.onReject);
-
-    this.handleError = () => {};
-  }
-
-  onResolve(value) {
-    let storedValue = value;
+    this.resolve = this.resolve.bind(this);
+    this.reject = this.reject.bind(this);
 
     try {
-      this.promiseChain.forEach(
-        (successHandler) => (storedValue = successHandler(storedValue))
-      );
+      executor(this.resolve, this.reject);
     } catch (error) {
-      this.promiseChain = [];
-      this.onReject(error);
+      this.reject(error);
     }
   }
 
-  onReject(error) {
-    this.handleError(error);
+  resolve(value) {
+    if (this.state !== "pending") {
+      return;
+    }
+
+    this.state = "fulfilled";
+    this.result = value;
+    this.handleSettled("onFulfilled");
   }
 
-  then(successHandler) {
-    this.promiseChain.push(successHandler);
-    return this;
+  reject(value) {
+    if (this.state !== "pending") {
+      return;
+    }
+
+    this.state = "rejected";
+    this.result = value;
+    this.handleSettled("onRejected");
   }
 
-  catch(errorHandler) {
-    this.handleError = errorHandler;
-    return this;
+  handleSettled(promiseState) {
+    queueMicrotask(() => {
+      for (const callback of this.callbacks) {
+        try {
+          const returnedValue = callback[promiseState](this.result);
+          if (returnedValue instanceof MyPromise) {
+            returnedValue.then(callback.resolve, callback.reject);
+          } else {
+            callback.resolve(returnedValue);
+          }
+        } catch (error) {
+          callback.reject(error);
+        }
+      }
+    });
+  }
+
+  then(onFulfilled, onRejected) {
+    return new MyPromise((resolve, reject) => {
+      this.callbacks.push({
+        onFulfilled: onFulfilled || ((value) => value),
+        onRejected:
+          onRejected ||
+          ((error) => {
+            throw error;
+          }),
+        resolve,
+        reject,
+      });
+    });
+  }
+
+  catch(onRejected) {
+    return this.then(undefined, onRejected);
+  }
+
+  finally(onFinally) {
+    return this.then(onFinally, onFinally);
+  }
+
+  static resolve(value) {
+    return new MyPromise((resolve) => resolve(value));
+  }
+
+  static reject(value) {
+    return new MyPromise((_, reject) => reject(value));
   }
 }
 
