@@ -19,6 +19,8 @@ curriedJoin(1, 2)(3) // '1_2_3'
  *
  */
 
+// asked in Tekion
+
 function join(a, b, c) {
   return `${a}_${b}_${c}`;
 }
