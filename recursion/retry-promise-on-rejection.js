@@ -12,27 +12,29 @@ For the problem here, there is no need to detect network error, you can just ret
 
 ***********************************************************************Solution***************************************************************/
 
-
 /**
  * @param {() => Promise<any>} fetcher
  * @param {number} maximumRetryCount
  * @return {Promise<any>}
  */
-function fetchWithAutoRetry(fetcher, maximumRetryCount) {  
+
+// asked in Flipkart
+function fetchWithAutoRetry(fetcher, maximumRetryCount) {
   return new Promise((resolve, reject) => {
     let retryCount = 0;
 
-    function helper(){
-      fetcher().then(data => resolve(data)).catch(error => {        
-        if(retryCount++ < maximumRetryCount){
-          helper();
-        }else{
-          reject(error)
-        }
-      })
+    function helper() {
+      fetcher()
+        .then((data) => resolve(data))
+        .catch((error) => {
+          if (retryCount++ < maximumRetryCount) {
+            helper();
+          } else {
+            reject(error);
+          }
+        });
     }
 
-    helper();    
-  })  
+    helper();
+  });
 }
-
