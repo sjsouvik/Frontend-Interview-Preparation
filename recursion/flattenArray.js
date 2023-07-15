@@ -47,3 +47,28 @@ Array.prototype.flattenArray = function () {
 };
 
 console.log(nestedArr.flattenArray());
+
+/***************************************Polyfill of Array.flat() with the given depth**********************************/
+
+/**
+ * @param {any[]} arr
+ * @param {number} depth
+ * @return {any[]}
+ */
+const flat = function (arr, n) {
+  const result = [];
+
+  const flatUtil = (arr, n) => {
+    for (const item of arr) {
+      if (Array.isArray(item) && n > 0) {
+        const depth = n - 1;
+        flatUtil(item, depth);
+      } else {
+        result.push(item);
+      }
+    }
+  };
+
+  flatUtil(arr, n);
+  return result;
+};
