@@ -4,6 +4,8 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 ## Problem Solving
 
+- [CSS](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/CSS)
+
 - [Polyfills of Array methods and Higher Order Functions(e.g. forEach(), map(), filter(), reduce(), bind(),...)](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/polyfillsInJS)
 
 - [Array](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/array)
