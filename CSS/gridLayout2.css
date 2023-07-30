@@ -1,0 +1,33 @@
+/*
+
+Layout the items in a grid so that:
+
+- items have minium width of 100px and fill up the space
+- place as many items in a row as possible
+- gap between items is 10px
+
+<div class="container">
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</div>
+
+************************************************************Solution******************************************************/
+
+/* 
+
+`auto-fit` will allow to create as many columns as will fit into the container 
+
+Reference: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids#as_many_columns_as_will_fit
+
+*/
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.item {
+  height: 50px;
+  background-color: #7aa4f0;
+}
