@@ -1,0 +1,20 @@
+/*
+
+Just like truncate text in one line(with ellipsis), please do the same for max 3 lines.
+
+1. short text(1 line)
+
+2. short text (2 lines)
+
+3. 3 lines(no overflow)
+
+4. more than 3 lines
+
+*********************************************************Solution********************************************************/
+
+.max-three-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

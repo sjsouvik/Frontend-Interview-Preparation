@@ -1,0 +1,16 @@
+/*
+
+Truncate text in one line, if needed add ellipsis.
+
+1.When no overflow
+
+2.when there is need to truncate, add ellipsis
+
+
+*************************************************************Solution*****************************************************/
+
+.one-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
