@@ -8,6 +8,22 @@ const returnedArray = fruits.map((fruit) => {
 
 console.log(returnedArray);
 
+console.log("**************improved polyfill for map()***************");
+
+Array.prototype.myMap = function (callback, thisObj) {
+  if (typeof callback !== "function") {
+    throw new Error("First argument must be a function");
+  }
+
+  const result = [];
+  this.forEach((...args) => {
+    const index = args[1];
+    result[index] = callback.apply(thisObj, args);
+  });
+
+  return result;
+};
+
 console.log("**************polyfill for map()***************");
 Array.prototype.myMap = function (callback) {
   const newFruits = []; //created the array
