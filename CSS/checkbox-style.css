@@ -1,0 +1,32 @@
+/*
+
+The default checkbox style might not be what you want for most of the time, in this problem you are asked to create a different checkbox style.
+
+when unchecked, show a gray circle ('color: gray')
+when checked, show a green circle ('color: green')
+
+Set the circle with radius of 5px and don't add extra padding, the HTML structure is
+
+<label class="my-checkbox">
+  <input type="checkbox" />
+  <span>a checkbox</span>
+</label>
+
+**************************************************************Solution*********************************************************/
+
+.my-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  appearance: none; /* to disable the native appearance */
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+input[type="checkbox"]:checked {
+  background-color: green;
+}
