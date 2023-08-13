@@ -1,0 +1,28 @@
+/*
+
+Suppose we have to layout a bunch of items with below requirements.
+
+fill out to width:100px, but stretch to fill the available space and shrink if not enough
+stack them if needed.
+
+HTML structure is
+
+<div class="container">
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</div>
+
+**************************************************************Solution*********************************************************/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  background-color: #7aa4f0;
+  height: 50px;
+  margin: 5px;
+  flex: 1 1 100px; /* Refer to this to know more about the `flex` property - shorthand property of `flex-grow`, `flex-shrink`, `flex-basis` : https://web.dev/learn/css/flexbox/#controlling-space-inside-flex-items */
+}
