@@ -1,0 +1,29 @@
+/*
+
+Suppose we have a row structured as below:
+
+<div class="row"></div>
+
+Please complete the CSS according to following requirements:
+
+1. height 50px
+2. set background to #eee, but if there are adjacent rows, set even rows' background to #ddd
+3. set 1px border on top & bottom with color #ccc, but if there are adjacent rows, adjacent borders should be collapsed into one
+
+if you have to decide which row to display both top and bottom border, add it to first row.
+
+****************************************************************Solution*********************************************************/
+
+.row {
+  height: 50px;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+}
+
+.row:nth-child(even) {
+  background-color: #ddd;
+}
+
+.row:first-child {
+  border-top: 1px solid #ccc;
+}
