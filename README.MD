@@ -24,6 +24,8 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 - [JSON](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/JSON)
 
+- [Observable](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/observable)
+
 - [Recursion](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/recursion)
 
 - [Custom hooks in ReactJS](https://github.com/sjsouvik/react-components-hooks/tree/main/src/hooks)
