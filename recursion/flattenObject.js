@@ -34,14 +34,32 @@ const user = {
 // asked in Microsoft
 function flattenObject(inputObj, parent, output) {
   for (let key in inputObj) {
+    const objKey = parent + "_" + key;
     if (typeof inputObj[key] === "object") {
-      output = flattenObject(inputObj[key], parent + "_" + key, output);
+      output = flattenObject(inputObj[key], objKey, output);
     } else {
-      output[parent + "_" + key] = inputObj[key];
+      output[objKey] = inputObj[key];
     }
   }
 
   return output;
 }
 
-console.log(flattenObject(user, "user", {}));
+console.log(flattenObject(user, "", {}));
+
+// asked in amber student - to solve the same problem using reduce() method
+function flattenObj(input, parent = "user") {
+  return Object.keys(input).reduce((acc, key) => {
+    const objKey = parent ? `${parent}_${key}` : key;
+
+    if (typeof input[key] === "object") {
+      acc = { ...acc, ...flattenObj(input[key], objKey) };
+    } else {
+      acc[objKey] = input[key];
+    }
+
+    return acc;
+  }, {});
+}
+
+console.log(flattenObj(user));
