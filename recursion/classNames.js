@@ -89,9 +89,10 @@ function classNames(...args) {
   return util(...args).join(" ");
 }
 
+// solution using Array.flat()
+
 /*
-  
-  // solution using Array.flat()
+    
   function classNames(...args){
     return args.flat(Infinity).reduce((result, item) => {
       if(item === null){
