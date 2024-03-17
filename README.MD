@@ -22,6 +22,8 @@ This is to keep all frontend interview problems that I solved or faced in interv
 
 - [DOM](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/DOM)
 
+- [Virtual DOM](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/virtualDOM)
+
 - [JSON](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/JSON)
 
 - [Observable](https://github.com/sjsouvik/Frontend-Interview-Preparation/tree/main/observable)
