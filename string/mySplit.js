@@ -63,8 +63,8 @@ String.prototype.mySplit = function (delimiter) {
 
   const result = [];
 
-  function splitString(str, index) {
-    if (index >= inputString.length) {
+  function splitString(str, indexOf1stChar) {
+    if (indexOf1stChar >= inputString.length) {
       return;
     }
 
@@ -72,10 +72,9 @@ String.prototype.mySplit = function (delimiter) {
 
     if (indexOfDelimiter1stChar >= 0) {
       result.push(str.substring(0, indexOfDelimiter1stChar));
-      splitString(
-        str.substring(indexOfDelimiter1stChar + delimiter.length),
-        indexOfDelimiter1stChar + delimiter.length
-      );
+      const updatedIndexOf1stChar = indexOfDelimiter1stChar + delimiter.length;
+      const remainingInputString = str.substring(updatedIndexOf1stChar);
+      splitString(remainingInputString, updatedIndexOf1stChar);
     } else {
       result.push(str);
     }
@@ -86,6 +85,9 @@ String.prototype.mySplit = function (delimiter) {
 };
 
 const strTest = "abxc abdef";
-console.log("Split testing", strTest.split());
-console.log("polyfill testing of String.split() -", strTest.mySplit2());
-console.log("updated polyfill testing of String.split() -", strTest.mySplit());
+console.log("Split testing", strTest.split("de"));
+console.log("polyfill testing of String.split() -", strTest.mySplit2("de"));
+console.log(
+  "updated polyfill testing of String.split() -",
+  strTest.mySplit("de")
+);
