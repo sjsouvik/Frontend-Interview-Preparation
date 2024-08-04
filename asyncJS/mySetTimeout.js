@@ -9,6 +9,7 @@ Write a polyfill of `setTimeout()`
 Asked in Target
 
 https://www.youtube.com/watch?v=j1-fbe5F5uE&ab_channel=JsCafe
+https://medium.com/@choprabhishek630/lets-write-a-polyfill-for-settimeout-24564b1a7142
 
 requestIdleCallback() only present in browser or, window object, so, this code would only work in browser
  - https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback 
