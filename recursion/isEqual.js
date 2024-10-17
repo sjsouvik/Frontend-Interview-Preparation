@@ -56,49 +56,30 @@ returns true and call stack should not exceed the maximum.
  * @return {boolean}
  */
 
- function isEqual(a, b, visited = new Set()){
-    if(typeof(a) !== 'object' || typeof(b) !== 'object'){
-      return a === b;
-    }
-  
-    visited.add(a);
-    visited.add(b);
-  
-    // to compare if both are arrays
-    if(Array.isArray(a) && Array.isArray(b)){
-      if(a.length !== b.length){
-        return false;
-      }
-  
-      for(let i = 0; i < a.length; i++){
-        /* to skip circular reference(if one array or object contains itself as an item or property respectively, 
-        in that case no need to compare again and again which would exceed the call stack) */
-        if(visited.has(a[i]) || visited.has(b[i])){
-          return true;
-        }
-  
-        if(!isEqual(a[i], b[i], visited)){
-          return false;
-        }
-      }
+function isEqual(a, b, visited = new Set()) {
+  if (typeof a !== "object" || typeof b !== "object") {
+    return a === b;
+  }
+
+  visited.add(a);
+  visited.add(b);
+
+  // to know whether both the objects have the same number of keys or not
+  if (Object.keys(a).length !== Object.keys(b).length) {
+    return false;
+  }
+
+  for (const key in a) {
+    /* to skip circular reference(if one object contains itself as an property, 
+      in that case no need to compare again and again which would exceed the call stack) */
+    if (visited.has(a[key]) || visited.has(b[key])) {
       return true;
     }
-    
-    // to compare if both are objects
-    if(Object.keys(a).length !== Object.keys(b).length){
+
+    if (!isEqual(a[key], b[key], visited)) {
       return false;
     }
-  
-    for(let key in a){
-      // to skip circular reference
-      if(visited.has(a[key]) || visited.has(b[key])){
-        return true;
-      }
-  
-      if(!isEqual(a[key], b[key], visited)){
-        return false;
-      }
-    }
-  
-    return true;
   }
+
+  return true;
+}
