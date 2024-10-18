@@ -91,26 +91,20 @@ presentation and recreate a DOM tree.
  */
 // this function generates virtual DOM from the given actual DOM
 function virtualize(element) {
-  const rootNode = element;
-  const virtualDOM = { type: rootNode.tagName.toLowerCase() };
+  const { tagName, attributes, childNodes } = element;
+  const virtualDOM = { type: tagName.toLowerCase() };
 
   // props will contain the attributes and child nodes of an element
   const props = {};
 
   // checking for attributes
-  if (rootNode.attributes) {
-    const attributes = rootNode.attributes;
-    for (const attribute of attributes) {
-      const { name, value } = attribute;
-      const key = name === "class" ? "className" : name;
-      props[key] = value;
-    }
+  for (const { name, value } of attributes) {
+    props[name === "class" ? "className" : name] = value;
   }
 
-  /* checking for child nodes - in childNodes we can see both text nodes, element nodes, and even 
-  comment nodes if they exist. */
+  // checking for child nodes - in childNodes we can see both text nodes, element nodes, and even comment nodes if they exist.
   const children = [];
-  rootNode.childNodes.forEach((childNode) => {
+  childNodes.forEach((childNode) => {
     // checking for text nodes
     if (!childNode.tagName) {
       children.push(childNode.textContent);
@@ -119,12 +113,10 @@ function virtualize(element) {
     }
   });
 
-  if (children.length) {
-    if (children.length === 1) {
-      props.children = children[0];
-    } else {
-      props.children = children;
-    }
+  if (children.length === 1) {
+    props.children = children[0];
+  } else {
+    props.children = children;
   }
 
   virtualDOM.props = props;
