@@ -65,10 +65,8 @@ it will be in another problem as well.
 function createElement(type, props, ...children) {
   const element = document.createElement(type);
 
-  for (let key of Object.keys(props)) {
-    const value = props[key];
-    key = key === "className" ? "class" : key;
-    element.setAttribute(key, value);
+  for (const key of Object.keys(props)) {
+    element.setAttribute(key === "className" ? "class" : key, props[key]);
   }
 
   for (const child of children) {
